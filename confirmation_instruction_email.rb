@@ -1,8 +1,8 @@
-class ConfirmationInstructionEmail < Email
+class ConfirmationInstructionEmail < Howitzer::Email
   SUBJECT = "Confirmation instructions"
 
   def confirm_my_account
-    WebPage.visit confirmation_link
+    Howitzer::Web::Page.visit confirmation_link
   end
 
   def confirmation_link
