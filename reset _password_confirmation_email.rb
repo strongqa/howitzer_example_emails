@@ -1,5 +1,5 @@
 class ResetPasswordConfirmationEmail < Howitzer::Email
-  SUBJECT = "Reset password instructions"
+  subject "Reset password instructions"
 
   def confirm_my_account
     Howitzer::Web::Page.visit confirmation_link

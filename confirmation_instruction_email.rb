@@ -1,5 +1,5 @@
 class ConfirmationInstructionEmail < Howitzer::Email
-  SUBJECT = "Confirmation instructions"
+  subject "Confirmation instructions"
 
   def confirm_my_account
     Howitzer::Web::Page.visit confirmation_link
