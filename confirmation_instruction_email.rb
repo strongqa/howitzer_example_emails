@@ -2,7 +2,7 @@ class ConfirmationInstructionEmail < Howitzer::Email
   subject "Confirmation instructions"
 
   def confirm_my_account
-    ConfirmationEmailPage.open(token: token)
+    ConfirmationEmailPage.open(validate: false, token: token)
   end
 
   def confirmation_link
