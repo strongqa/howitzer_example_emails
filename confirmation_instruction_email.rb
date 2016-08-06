@@ -1,5 +1,5 @@
 class ConfirmationInstructionEmail < Howitzer::Email
-  subject "Confirmation instructions"
+  subject 'Confirmation instructions'
 
   def confirm_my_account
     ConfirmationEmailPage.open(validate: false, token: token)
@@ -7,7 +7,7 @@ class ConfirmationInstructionEmail < Howitzer::Email
 
   def confirmation_link
     res = plain_text_body[/Confirm my account \((.+?)\)/, 1]
-    log.error("Confirmation link was not found") if res.nil?
+    log.error('Confirmation link was not found') if res.nil?
     res
   end
 
