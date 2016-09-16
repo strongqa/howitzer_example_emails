@@ -7,7 +7,7 @@ class ResetPasswordConfirmationEmail < Howitzer::Email
 
   def confirmation_link
     res = plain_text_body[/Change my password \((.+?)\)/, 1]
-    Howitzer::Log.error('Confirmation link was not found') if res.nil?
+    Howitzer::Log.info('Confirmation link was not found') if res.nil?
     res
   end
 
