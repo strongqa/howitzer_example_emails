@@ -1,17 +1,17 @@
 class ResetPasswordConfirmationEmail < Howitzer::Email
   subject 'Reset password instructions'
 
-  def confirm_my_account
+  def reset_password
     ChangePasswordPage.open(token: token)
   end
 
-  def confirmation_link
+  def reset_password_link
     res = plain_text_body[/Change my password \((.+?)\)/, 1]
     Howitzer::Log.info('Confirmation link was not found') if res.nil?
     res
   end
 
   def token
-    confirmation_link[/reset_password_token=(.+)/, 1]
+    reset_password_link[/reset_password_token=(.+)/, 1]
   end
 end
